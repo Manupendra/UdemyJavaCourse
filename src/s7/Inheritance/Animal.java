@@ -5,9 +5,10 @@ public class Animal {
     private String size;
     private double weight;
 
-    public Animal(){
+    public Animal() {
 
     }
+
     public Animal(String type, String size, double weight) {
         this.type = type;
         this.size = size;
@@ -23,11 +24,11 @@ public class Animal {
                 '}';
     }
 
-    public void move(String speed){
-        System.out.println(type+" moves "+ speed);
+    public void move(String speed) {
+        System.out.println(type + " moves " + speed);
     }
 
-    public void makeNoise(){
-        System.out.println(type+" make some kind of noise");
+    public void makeNoise() {
+        System.out.println(type + " make some kind of noise");
     }
 }
