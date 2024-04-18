@@ -1,6 +1,7 @@
 package s15.Collections;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public record Card(Suit suit, String face, int rank) {
@@ -11,6 +12,10 @@ public record Card(Suit suit, String face, int rank) {
         public char getImage() {
             return (new char[]{9827, 9830, 9829, 9824})[this.ordinal()];
         }
+    }
+
+    public static Comparator<Card> sortRankReversedSuit() {
+        return Comparator.comparing(Card::rank).reversed().thenComparing(Card::suit);
     }
 
     @Override
