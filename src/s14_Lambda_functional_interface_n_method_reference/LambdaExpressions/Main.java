@@ -3,8 +3,10 @@ package s14_Lambda_functional_interface_n_method_reference.LambdaExpressions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
+import java.util.function.Supplier;
 
 public class Main {
 
@@ -84,6 +86,13 @@ public class Main {
                     default -> "";
                 });
         System.out.println(Arrays.toString(emptyStrings));
+
+        // Supplier explanation
+        String[] names = {"Manu","Raj","Ankush","Vibhor","Rishabh"};
+        String[] randomList = randomlySelectedValues(10, names,
+                () -> new Random().nextInt(0, names.length));
+
+        System.out.println(Arrays.toString(randomList));
     }
 
     // Function
@@ -96,6 +105,15 @@ public class Main {
     // Consumer
     public static <T> void processPoint(T t1, T t2, BiConsumer<T, T> consumer) {
         consumer.accept(t1, t2);
+    }
+
+    //Supplier Lambda function
+    public static String[] randomlySelectedValues(int count, String[] values, Supplier<Integer> s) {
+        String[] selectedValues = new String[count];
+        for (int i = 0; i < count; i++) {
+            selectedValues[i] = values[s.get()];
+        }
+        return selectedValues;
     }
 
 
