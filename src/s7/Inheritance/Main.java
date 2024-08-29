@@ -16,4 +16,7 @@ public class Main {
         System.out.println(animal);
         System.out.println("__________");
     }
+
 }
+
+
